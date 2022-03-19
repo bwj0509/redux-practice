@@ -73,6 +73,11 @@ function reducer(state, action){
     }
 }
 
+
+export const UserDispatch = React.createContext(null); // Userdispatch 라는 이름으로 내보내준다.
+
+
+
 function App() {
 
   const [ state, dispatch ] = useReducer(reducer, initialState);
@@ -117,11 +122,12 @@ function App() {
 
 
   return (
-   <>
+   <UserDispatch.Provider value={dispatch}>
+     {console.log(dispatch)}
     <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
     <UserList users={users} onToggle={onToggle} onRemove={onRemove}/>
     <div>활성 사용자수 : 1</div>
-   </>
+   </UserDispatch.Provider>
 
   );
 }
