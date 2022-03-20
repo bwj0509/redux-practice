@@ -5,10 +5,11 @@ import App from './App';
 import App2 from './App2';
 import App3 from './App3';
 import reportWebVitals from './reportWebVitals';
+import App_reducetest from './App_reducetest';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App3 />
+    <App_reducetest />
   </React.StrictMode>,
   document.getElementById('root')
 );
