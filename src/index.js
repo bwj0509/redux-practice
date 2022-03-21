@@ -6,10 +6,11 @@ import App2 from './App2';
 import App3 from './App3';
 import reportWebVitals from './reportWebVitals';
 import App_reducetest from './App_reducetest';
+import App_reducertest from './App_reducertest';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App_reducetest />
+    <App_reducertest />
   </React.StrictMode>,
   document.getElementById('root')
 );
