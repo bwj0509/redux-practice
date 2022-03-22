@@ -1,3 +1,6 @@
+//75번째     const { username, email, age } = state.inputs 문법에 대해 정확하게 알기
+
+
 import React, { useReducer, useRef } from "react";
 
 const initialState = {
