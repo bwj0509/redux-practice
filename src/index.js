@@ -7,10 +7,11 @@ import App3 from './App3';
 import reportWebVitals from './reportWebVitals';
 import App_reducetest from './App_reducetest';
 import App_reducertest from './App_reducertest';
+import App_reducer_20220323 from './App_reducer_20220323';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App_reducertest />
+    <App_reducer_20220323 />
   </React.StrictMode>,
   document.getElementById('root')
 );
