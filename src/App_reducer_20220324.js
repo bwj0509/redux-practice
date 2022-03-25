@@ -107,7 +107,6 @@ function App_reducer_20220324() {
                 <div>{data.id}, {data.username}, {data.age}, {data.gender}<button onClick={onRemove} value={data.id}>삭제</button></div>
 
             ))}
-            {console.log(state.users)}
         </div>
     );
 }
