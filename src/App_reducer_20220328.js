@@ -1,4 +1,4 @@
-import React, { useReducer, useRef } from 'react';
+import React, { useReducer, useRef, useState } from 'react';
 
 const initialState = {
     inputs: {
@@ -52,11 +52,8 @@ function reducer(state, action) {
         case 'ACTIVE':
             console.log('활성화 실시')
             return {
-                ...state,
-                users: [
-                    ...state.users.map(user => user.id == action.id ? { ...user, active: 'True' } : user)
-                ]
-
+                inputs: state.inputs,
+                users: state.users.map((user) => (user.id == action.id ? { ...user, active: 'True' } : user))
             }
         default:
             return state
@@ -87,7 +84,8 @@ function App_reducer_20220402() {
                 id: nextId.current,
                 username,
                 age,
-                gender
+                gender,
+                active: 'False'
             }
         })
         nextId.current += 1
@@ -101,8 +99,8 @@ function App_reducer_20220402() {
         })
     }
 
-    const onActive = (e) => {
-        const id = e.target.value
+    const onActive = (data) => {
+        const id = data
         dispatch({
             type: "ACTIVE",
             id
@@ -127,16 +125,16 @@ function App_reducer_20220402() {
                 {state.users.map((data) => (
                     <tr>
                         <td>{data.id}</td>
-                        <td onClick={onActive} value={data.id}>{data.username}</td>
+                        <td onClick={() => onActive(data.id)}>{data.username}</td>
                         <td>{data.age}</td>
                         <td>{data.gender}</td>
                         <td>{data.active}</td>
-                        <td><button onClick={onRemove} value={data.id}>삭제</button></td>
+                        <td><button onClick={onRemove} value={data.id} >삭제</button></td>
                     </tr>
                 ))}
             </table>
             <div>활성화된 사용자수 : {state.users.filter((user) => (user.active === 'True')).length}명</div>
-            {console.log(state.users)}
+            {console.log(state)}
         </div>
     );
 }
