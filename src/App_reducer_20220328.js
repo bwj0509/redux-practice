@@ -53,7 +53,11 @@ function reducer(state, action) {
             console.log('활성화 실시')
             return {
                 inputs: state.inputs,
-                users: state.users.map((user) => (user.id == action.id ? { ...user, active: 'True' } : user))
+                users: state.users.map((user) => (user.id == action.id
+                    ? user.active == 'True'
+                        ? { ...user, active: 'False' }
+                        : { ...user, active: 'True' }
+                    : user))
             }
         default:
             return state
@@ -125,7 +129,7 @@ function App_reducer_20220402() {
                 {state.users.map((data) => (
                     <tr>
                         <td>{data.id}</td>
-                        <td onClick={() => onActive(data.id)}>{data.username}</td>
+                        <td className='cursor' onClick={() => onActive(data.id)}>{data.username}</td>
                         <td>{data.age}</td>
                         <td>{data.gender}</td>
                         <td>{data.active}</td>
